@@ -5,4 +5,7 @@
     <string name="hint_correo">Correo:</string>
     <string name="btn_guardar">Guardar Datos:</string>
     <string name="menu_nuevo">Nuevo Registro:</string>
+
+
+
 </resources>

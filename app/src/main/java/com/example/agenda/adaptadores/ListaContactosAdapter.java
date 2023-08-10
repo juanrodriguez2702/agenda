@@ -1,5 +1,7 @@
 package com.example.agenda.adaptadores;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agenda.R;
+import com.example.agenda.VerActivity;
 import com.example.agenda.entidades.Contactos;
 
 import java.util.ArrayList;
@@ -30,6 +33,9 @@ public class ListaContactosAdapter extends RecyclerView.Adapter<ListaContactosAd
 
     @Override
     public void onBindViewHolder(@NonNull ContactoViewHolder holder, int position) {
+        holder.viewNombre.setText(listaContactos.get(position).getNombre());
+        holder.viewTelefono.setText(listaContactos.get(position).getTelefono());
+        holder.viewCorreo.setText(listaContactos.get(position).getCorreo_electronico());
 
     }
 
@@ -39,9 +45,24 @@ public class ListaContactosAdapter extends RecyclerView.Adapter<ListaContactosAd
     }
 
     public class ContactoViewHolder extends RecyclerView.ViewHolder {
-        
+        TextView viewNombre, viewTelefono, viewCorreo;
         public ContactoViewHolder(@NonNull View itemView) {
             super(itemView);
+            viewNombre = itemView.findViewById(R.id.viewNombre);
+            viewTelefono = itemView.findViewById(R.id.viewTelefono);
+            viewCorreo = itemView.findViewById(R.id.viewCorreo);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context context = viewNombre.getContext();
+                    Intent intent = new Intent(context, VerActivity.class);
+                    intent.putExtra("ID", listaContactos.get(getAdapterPosition()).getId());
+                    context.startActivity(intent);
+                }
+
+
+            });
         }
     }
 }

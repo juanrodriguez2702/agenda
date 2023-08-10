@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.example.agenda.adaptadores.ListaContactosAdapter;
 import com.example.agenda.db.DbContactos;
 import com.example.agenda.db.DbHelper;
 import com.example.agenda.entidades.Contactos;
@@ -40,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         ListadeContactosArray = new ArrayList<>();
 
 
-
+        ListaContactosAdapter adapter = new ListaContactosAdapter(dbContactos.mostrarContactos());
+        listaContactos.setAdapter(adapter);
         //btnCrear = findViewById(R.id.btnCrear);
         /*
         btnCrear.setOnClickListener(new View.OnClickListener() {
