@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agenda.R;
 import com.example.agenda.VerActivity;
+import com.example.agenda.db.DbHelper;
 import com.example.agenda.entidades.Contactos;
 
 import java.util.ArrayList;
@@ -60,6 +61,8 @@ public class ListaContactosAdapter extends RecyclerView.Adapter<ListaContactosAd
                     intent.putExtra("ID", listaContactos.get(getAdapterPosition()).getId());
                     context.startActivity(intent);
                 }
+
+
 
 
             });

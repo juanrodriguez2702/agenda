@@ -12,7 +12,8 @@
         android:id="@+id/viewNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hint_nombre" />
+        android:hint="@string/hint_nombre" />
+
 
     <EditText
         android:id="@+id/txtNombre"
@@ -27,7 +28,7 @@
         android:id="@+id/viewTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hint_telefono" />
+        android:hint="@string/hint_telefono" />
 
     <EditText
         android:id="@+id/txtTelefono"
@@ -42,7 +43,7 @@
         android:id="@+id/viewCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hint_correo" />
+        android:hint="@string/hint_correo" />
 
     <EditText
         android:id="@+id/txtCorreo"
@@ -58,6 +59,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/btn_guardar" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:clickable="true"
+        app:srcCompat="@drawable/baseline_edit_24" />
 
 
 </LinearLayout>

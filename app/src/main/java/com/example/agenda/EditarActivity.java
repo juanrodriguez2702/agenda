@@ -1,23 +1,24 @@
 package com.example.agenda;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agenda.db.DbContactos;
 import com.example.agenda.entidades.Contactos;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class VerActivity extends AppCompatActivity {
+public class EditarActivity extends AppCompatActivity {
     EditText txtNombre, txtTelefono, txtCorreo;
     Button btnGuardar;
-    FloatingActionButton fabEdit;
     Contactos contacto;
+
+
 
     int id = 0;
 
@@ -29,7 +30,6 @@ public class VerActivity extends AppCompatActivity {
         txtTelefono = findViewById(R.id.txtTelefono);
         txtCorreo = findViewById(R.id.txtCorreo);
         btnGuardar = findViewById(R.id.btnGuardarR);
-        fabEdit = findViewById(R.id.fabEditar);
 
         if (savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
@@ -42,7 +42,7 @@ public class VerActivity extends AppCompatActivity {
             id = (int) savedInstanceState.getSerializable("ID");
         }
 
-        DbContactos dbContactos = new DbContactos(VerActivity.this);
+        DbContactos dbContactos = new DbContactos(EditarActivity.this);
         contacto = dbContactos.verContacto(id);
 
         if(contacto !=null){
@@ -54,13 +54,31 @@ public class VerActivity extends AppCompatActivity {
             txtTelefono.setInputType(InputType.TYPE_NULL);
             txtCorreo.setInputType(InputType.TYPE_NULL);
         }
-        fabEdit.setOnClickListener(new View.OnClickListener() {
+
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(VerActivity.this, EditarActivity.class);
-                intent.putExtra("ID",id);
-                startActivity(intent);
+                if    (!txtNombre.getText().toString().equals("") &&
+                        !txtTelefono.getText().toString().equals("") &&
+                        !txtCorreo.getText().toString().equals("")){
+
+                    boolean correcto = dbContactos.editarContacto(id, txtNombre.getText().toString(), txtTelefono.getText().toString(), txtCorreo.getText().toString());
+
+
+                    if(correcto){
+                        Toast.makeText(EditarActivity.this, "REGISTRO ACTUALIZADO", Toast.LENGTH_LONG).show();
+                        verRegistro();
+                    } else{
+                        Toast.makeText(EditarActivity.this, "ERROR AL ACTUALIZAR", Toast.LENGTH_LONG).show();
+                    }
+                }else{
+                    Toast.makeText(EditarActivity.this, "SE DEBEN LLENAR TODOS LOS CAMPOS", Toast.LENGTH_LONG).show();
+                }
             }
         });
+    }
+    private void verRegistro(){
+        Intent intent = new Intent(this,VerActivity.class);
+        startActivity(intent);
     }
 }
