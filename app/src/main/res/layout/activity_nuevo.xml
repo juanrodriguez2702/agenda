@@ -5,7 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".NuevoActivity">
+    tools:context=".NuevoActivity"
+    tools:menu="@menu/menu_principal">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/holo_purple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_principal"
+        app:title="Mi Aplicación"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="0dp" />
 
     <EditText
         android:id="@+id/txtNombre"
@@ -39,4 +53,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/btn_guardar" />
+
+    <Button
+        android:id="@+id/btn_regresar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="regresar"
+        android:text="regresar" />
 </LinearLayout>

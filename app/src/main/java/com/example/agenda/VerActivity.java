@@ -1,7 +1,9 @@
 package com.example.agenda;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -16,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class VerActivity extends AppCompatActivity {
     EditText txtNombre, txtTelefono, txtCorreo;
     Button btnGuardar;
-    FloatingActionButton fabEdit;
+    FloatingActionButton fabEdit, fabDelete;
     Contactos contacto;
 
     int id = 0;
@@ -30,6 +32,7 @@ public class VerActivity extends AppCompatActivity {
         txtCorreo = findViewById(R.id.txtCorreo);
         btnGuardar = findViewById(R.id.btnGuardarR);
         fabEdit = findViewById(R.id.fabEditar);
+        fabDelete = findViewById(R.id.fabEliminar);
 
         if (savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
@@ -62,5 +65,28 @@ public class VerActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        fabDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(VerActivity.this);
+                builder.setMessage("Desea eliminar este contacto").setPositiveButton("si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).show();
+            }
+        });
     }
+
+
+
+
 }

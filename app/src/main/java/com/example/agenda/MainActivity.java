@@ -23,16 +23,26 @@ import com.example.agenda.entidades.Contactos;
 
 import java.util.ArrayList;
 
+//toolbar:
+import androidx.appcompat.widget.Toolbar;
+
 public class MainActivity extends AppCompatActivity {
 
     //Button btnCrear;
     RecyclerView listaContactos;
     ArrayList<Contactos>ListadeContactosArray;
+    Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
 
         listaContactos = findViewById(R.id.listaContactos);
         listaContactos.setLayoutManager(new LinearLayoutManager(this));
@@ -79,8 +89,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
         private void nuevoRegistro(){
             Intent intent = new Intent(this, NuevoActivity.class);
             startActivity(intent);
         }
-    }
+
+
+}

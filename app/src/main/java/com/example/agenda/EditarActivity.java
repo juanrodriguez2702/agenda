@@ -49,10 +49,7 @@ public class EditarActivity extends AppCompatActivity {
             txtNombre.setText(contacto.getNombre());
             txtTelefono.setText(contacto.getTelefono());
             txtCorreo.setText(contacto.getCorreo_electronico());
-            btnGuardar.setVisibility(View.INVISIBLE);
-            txtNombre.setInputType(InputType.TYPE_NULL);
-            txtTelefono.setInputType(InputType.TYPE_NULL);
-            txtCorreo.setInputType(InputType.TYPE_NULL);
+
         }
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {

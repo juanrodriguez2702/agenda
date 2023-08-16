@@ -2,6 +2,7 @@
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,4 +51,9 @@ import com.example.agenda.db.DbContactos;
         textTelefono.setText("");
         textCorreo.setText("");
     }
+
+        public void regresar (View view){
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
 }

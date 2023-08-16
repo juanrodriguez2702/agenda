@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="end"
+    android:onClick="regresar"
     android:orientation="vertical"
     tools:context=".VerActivity">
 
@@ -20,8 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:labelFor="@+id/viewNombre"
         android:inputType="text"
+        android:labelFor="@+id/viewNombre"
         android:textSize="24sp" />
 
     <TextView
@@ -35,8 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:labelFor="@+id/viewTelefono"
         android:inputType="text"
+        android:labelFor="@+id/viewTelefono"
         android:textSize="24sp" />
 
     <TextView
@@ -50,8 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:labelFor="@+id/viewCorreo"
         android:inputType="text"
+        android:labelFor="@+id/viewCorreo"
         android:textSize="24sp" />
 
     <Button
@@ -67,6 +69,13 @@
         android:layout_gravity="bottom|end"
         android:clickable="true"
         app:srcCompat="@drawable/baseline_edit_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@drawable/baseline_delete" />
 
 
 </LinearLayout>
